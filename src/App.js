@@ -80,7 +80,7 @@ class App extends Component {
             imageUrl: this.state.input,
         }); // imageUrl set to the current input in the field
 
-        fetch('http://localhost:3000/clarifai',{
+        fetch('https://smartbrain-api-a9li.onrender.com/clarifai',{
             method:'post',
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify({
@@ -90,7 +90,7 @@ class App extends Component {
             .then(response => response.json())
             .then(result => this.displayFaceBox(this.calculateFaceLocation(result.outputs[0].data.regions)))
             .then(done => {
-                    fetch('http://localhost:3000/image',{
+                    fetch('https://smartbrain-api-a9li.onrender.com/image',{
                         method:'put',
                         headers:{'Content-Type':'application/json'},
                         body: JSON.stringify({
